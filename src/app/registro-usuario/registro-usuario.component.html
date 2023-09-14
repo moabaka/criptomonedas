@@ -1,0 +1,81 @@
+<div class="container">
+  <h2>Registro de Usuario</h2>
+  <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" id="nombre" formControlName="nombre">
+      <div *ngIf="registroForm.get('nombre')?.touched && registroForm.get('nombre')?.invalid" class="text-danger">
+        Nombre es requerido.
+      </div>
+    </div>
+
+            <div class="form-group">
+              <label for="apellidos">Apellidos</label>
+              <input type="text" class="form-control" id="apellidos" formControlName="apellidos" required>
+            </div>
+            <div class="form-group">
+              <label for="contrasena">Contraseña</label>
+              <input type="password" class="form-control" id="contrasena" formControlName="contrasena" required>
+              <div *ngIf="registroForm.get('contrasena')?.touched && registroForm.get('contrasena')?.invalid" class="text-danger">
+                contrasena es requerida.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" formControlName="email" required>
+              <div *ngIf="registroForm.get('email')?.touched && registroForm.get('email')?.invalid" class="text-danger">
+                email es requerido.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="pais">País</label>
+              <select class="form-control" id="pais" formControlName="pais" required>
+                <option value="" disabled selected>Selecciona un país</option>
+                <option
+                *ngFor="let country of paises"
+
+                 [value]="country.name.common">{{ country.name.common }}</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="ciudad">Ciudad</label>
+              <input type="text" class="form-control" id="ciudad" formControlName="ciudad" required>
+            </div>
+            <div class="form-group">
+              <label for="direccion">Dirección</label>
+              <input type="text" class="form-control" id="direccion" formControlName="direccion" required>
+            </div>
+
+
+
+            <div class="form-group">
+              <label for="tipoCuenta">Tipo de cuenta</label>
+              <select class="form-control" id="tipoCuenta" formControlName="tipoCuenta" required>
+                <option value="tarjeta">Tarjeta</option>
+                <option value="iban">IBAN</option>
+              </select>
+            </div>
+
+            <div class="form-group" *ngIf="registroForm?.get('tipoCuenta')?.value === 'tarjeta'">
+              <label for="numeroTarjeta">Número de Tarjeta</label>
+              <input type="number" class="form-control" id="numeroTarjeta" formControlName="numeroTarjeta" required>
+              <div class="form-group">
+                <label for="fechaCaducidad">Fecha de Caducidad</label>
+                <input type="date" class="form-control" id="fechaCaducidad" formControlName="fechaCaducidad" required>
+              </div>
+              <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="number" class="form-control" id="cvv" formControlName="cvv" required>
+              </div>
+            </div>
+
+            <div class="form-group" *ngIf="registroForm?.get('tipoCuenta')?.value === 'iban'">
+              <label for="iban">IBAN</label>
+              <input type="text" class="form-control" id="iban" formControlName="iban" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrar</button>
+          </form>
+        </div>
+

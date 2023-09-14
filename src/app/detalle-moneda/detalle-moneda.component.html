@@ -1,0 +1,12 @@
+<div class="detalle-moneda">
+  <h2>{{ selectedCryptocurrency.name }}</h2>
+  <p>{{ selectedCryptocurrency.symbol }}</p>
+  <p>Precio: {{ selectedCryptocurrency.price }}</p>
+
+  <div class="grafico">
+    <canvas baseChart [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="legend" chartType="line"></canvas>
+  </div>
+
+  <button (click)="comprar()">Comprar</button>
+  <button (click)="vender()">Vender</button>
+</div>

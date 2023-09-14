@@ -1,0 +1,32 @@
+<div class="container mt-4">
+
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          Inicio de Sesión
+        </div>
+        <div class="card-body">
+          <form [formGroup]="inicioSesionForm" (ngSubmit)="iniciarSesion()">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" formControlName="email" required>
+              <div *ngIf="inicioSesionForm.get('email')?.touched && inicioSesionForm.get('email')?.invalid" class="text-danger">
+                email es requerido.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contraseña">Contraseña</label>
+              <input type="password" class="form-control" id="contraseña" formControlName="contraseña" required>
+              <div *ngIf="inicioSesionForm.get('contraseña')?.touched && inicioSesionForm.get('contraseña')?.invalid" class="text-danger" >
+                contraseña es requerida.
+
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-4">Iniciar Sesión</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

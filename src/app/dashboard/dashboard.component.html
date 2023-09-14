@@ -1,0 +1,35 @@
+<div class="container">
+  <h1>Dashboard</h1>
+
+  <h2>Balance de Monedas</h2>
+  <ul>
+    <li>Balance de Euro: {{ balanceCriptomonedas.euro }}</li>
+    <li>Balance de Bitcoin (BTC): {{ balanceCriptomonedas.btc }}</li>
+    <li>Balance de Ethereum (ETH): {{ balanceCriptomonedas.eth }}</li>
+    <li>Balance de Tether (USDT): {{ balanceCriptomonedas.usdt }}</li>
+    <li>Balance de Binance Coin (BNB): {{ balanceCriptomonedas.bnb }}</li>
+  </ul>
+
+  <h2>Ingresar Dinero en Euros</h2>
+  <form (ngSubmit)="ingresarDineroEnEuros()">
+    <input type="number" [(ngModel)]="cantidad" placeholder="Cantidad en Euros">
+    <button type="submit">Ingresar</button>
+  </form>
+
+  <h2>Precios de Mercado</h2>
+  <ul>
+    <li>Precio BTC: {{ precioMercadoCriptomonedas.btc }}</li>
+    <li>Precio ETH: {{ precioMercadoCriptomonedas.eth }}</li>
+    <li>Precio USDT: {{ precioMercadoCriptomonedas.usdt }}</li>
+    <li>Precio BNB: {{ precioMercadoCriptomonedas.bnb }}</li>
+
+  </ul>
+
+  <h2>Otras Opciones</h2>
+  <ul>
+    <li><a [routerLink]="'/detalle-criptomoneda/btc'">Detalle de Bitcoin</a></li>
+    <li><a [routerLink]="'/detalle-criptomoneda/eth'">Detalle de Ethereum</a></li>
+
+    <li><a [routerLink]="'/perfil-usuario/' + userId">Perfil de Usuario</a></li>
+  </ul>
+</div>

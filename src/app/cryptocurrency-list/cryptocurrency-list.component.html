@@ -1,0 +1,17 @@
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Symbol</th>
+    <th>Price</th>
+
+  </tr>
+  <tr *ngFor="let cryptocurrency of criptomonedas">
+    <td>{{ cryptocurrency.id }}</td>
+    <td>{{ cryptocurrency.name }}</td>
+    <td>{{ cryptocurrency.symbol }}</td>
+    <td>{{ cryptocurrency.price }}</td>
+
+  </tr>
+</table>
